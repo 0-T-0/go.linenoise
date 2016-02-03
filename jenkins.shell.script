@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#export GOROOT=/usr/lib/golang/bin
+#export GOPATH=/var/lib/jenkins/workspace
+#export PATH=.:$PATH:$GOPATH/bin
+
+#pushd $GOPATH
+
+#pushd /var/lib/jenkins/workspace 
+#env
+[[ -e src ]] || mkdir -v src
+
+cd src 
+if [ $? -eq 0 ]
+then
+
+[[ -e linenoise ]] && rm -rf linenoise
+git clone http://192.168.122.1/cgit/linenoise  && cd linenoise && make 
+
+fi
